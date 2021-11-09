@@ -228,12 +228,32 @@ def revealBoxesAnimation(board, boxesToReveal):
     for coverage in range(BOXSIZE, (-REVEALSPEED)-1, -REVEALSPEED):
         drawBoxCovers(board, boxesToReveal, coverage)
 
+
 def drawBoxCovers(board, boxes, coverage):
-    # TODO: write the func
+    """
+    Draw boxes being covered/revealed. 
+    board: Array of Arrays of (shape, color) tuple
+        is the game board
+    boxes: [[int, int]]
+        is a list of two-item lists, which have x & y spot of the box
+    coverage: 
+    """
+    for box in boxes:
+        left, top = leftTopCoordsOfBox(box[0], box[1])
+        pygame.draw.rect(DISPLAYSURF, BGCOLOR, (left, top, BOXSIZE, BOXSIZE))
+        shape, color = getShapeAndColor(board, box[0], box[1])
     pass
 
 def getShapeAndColor(board, x, y):
-    "Returns a tuple of (shape, color)"
+    """
+    Returns a tuple of (shape, color)
+    board: Array of Arrays of (shape, color) tuple
+        is the game board
+    x: int
+        x coordinate in boxes (not pixels)
+    y: int
+        y coordinate in boxes (not pixels)
+    """
     # TODO: write the func
     return (None, None)
 
